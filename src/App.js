@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+// Importing Themeprovide
+import { ThemeProvider } from "styled-components";
+// Importing useState
+import { useState } from "react";
+// Importing Styled Components from srtyles.js
+import { GlobalStyle, ThemeButton } from "./styles";
+// Importing FixedHeader
+import FixedNavHeader from "./Components/FixedHeader";
+// Importing Watched page
+import WatchedPage from "./Components/WatchedPage";
+// Importing Observer from Mobx
+import { observer } from "mobx-react";
 
-function App() {
+const theme = {
+  lightTheme: {
+    backgroundColor: "#cfcfd4", // main background color
+    HeaderDivColor: "#121273",
+    HeaderButtonsBack: "#cfcfd4",
+    navbatButtonHover: "rgb(221, 219, 219)",
+    bodyFontColor: "#121273",
+    // HeaderFontColor: "#56a6e3",
+    onHoverColor: "#56a6e3",
+    buttonTextColor: "rgb(221, 219, 219)",
+    buttonBGColor: "#121273",
+  },
+  darkTheme: {
+    backgroundColor: "#0d378b", // main background color
+    HeaderDivColor: "#282c34",
+    HeaderButtonsBack: "#0d378b",
+    navbatButtonHover: "#282c34",
+    bodyFontColor: "rgb(221, 219, 219)",
+    // HeaderFontColor: "#56a6e3",
+    onHoverColor: "rgb(221, 219, 219)",
+    buttonTextColor: "rgb(221, 219, 219)",
+    buttonBGColor: "#282c34",
+  },
+};
+
+const App = () => {
+  const [currentTheme, setCurrentTheme] = useState("lightTheme");
+
+  const toggleTheme = () => {
+    setCurrentTheme(currentTheme === "lightTheme" ? "darkTheme" : "lightTheme");
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* Wrapping everything with the theme provider */}
+      <ThemeProvider theme={theme[currentTheme]}>
+        <FixedNavHeader />
+        <GlobalStyle />
+        <WatchedPage />
+        {/* <div className="App-navbar"></div> */}
+        <ThemeButton onClick={toggleTheme}>
+          {currentTheme === "lightTheme" ? "Dark" : "Light"} Mode
+        </ThemeButton>
+      </ThemeProvider>
     </div>
   );
-}
+};
 
-export default App;
+export default observer(App);
