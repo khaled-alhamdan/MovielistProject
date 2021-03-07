@@ -1,10 +1,11 @@
 import styled, { createGlobalStyle } from "styled-components";
+import ImageCoomingSoon from "./Images/ImageComingSoon.jpg";
 
 export const GlobalStyle = createGlobalStyle`
   body {
     color: ${(props) => props.theme.bodyFontColor};
     background-color: ${(props) => props.theme.backgroundColor};
-    font-weight:600;
+    font-weight:300;
     font-family:sans-serif;
   }
 `;
@@ -17,10 +18,20 @@ export const HeaderNavDiv = styled.div`
   width: 100%;
   /* height: 80px; */
   box-sizing: border-box;
-  margin: 0px;
-  padding: 10px;
+  /* margin: 0px; */
+  padding: 20px;
   position: relative;
   color: rgb(221, 219, 219);
+`;
+
+export const NavbarTitleButton = styled.button`
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: rgb(221, 219, 219);
+  font-size: 20px;
+  font-family: sans-serif;
 `;
 
 export const NavbarButtonsDiv = styled.div`
@@ -53,8 +64,9 @@ export const NavbarButtons = styled.button`
 
 export const SearchBarStyled = styled.input`
   padding: 5px;
-  height: 18px;
-  width: 150px;
+  height: 15px;
+  width: 25%;
+  margin-top: 5px;
   color: ${(props) => props.theme.HeaderDivColor};
   :focus {
     outline: 0;
@@ -85,7 +97,7 @@ export const WatchedPageContainerDiv = styled.div`
   display: flex;
   justify-content: space-around;
   /* width: 100%; */
-  height: auto;
+  height: 10px;
   align-items: center;
   text-align: center;
   margin-left: auto;
@@ -115,8 +127,8 @@ export const WatchedPageWatchedDeleteButtons = styled.button`
 
 export const MoviesDisplay = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-gap: 20px;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 10px;
   /* padding: 10px; */
   margin-top: 10px;
   /* margin-left: auto;
@@ -124,10 +136,24 @@ export const MoviesDisplay = styled.div`
   justify-content: center;
 `;
 
+export const MoviesDisplayContainerDiv = styled.div`
+  border: 2px solid ${(props) => props.theme.bodyFontColor};
+  border-radius: 10px;
+  width: 80%;
+  margin: 15px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* box-sizing: border-box; */
+  padding: 10px;
+  background-size: contain;
+  margin-top: 15px;
+`;
+
 export const MovieImage = styled.img`
-  background-color: white;
-  height: 200px;
-  width: 150px;
+  background-image: url(${ImageCoomingSoon});
+  background-size: cover;
+  height: 170px;
+  width: 125px;
 `;
 
 export const MovieItemConatinerDiv = styled.div`
@@ -143,6 +169,45 @@ export const MovieItemTitleDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
   height: 10px;
+  margin-bottom: 50px;
   text-transform: uppercase;
   /* box-sizing: border-box; */
+`;
+
+export const WishListSerachAddDiv = styled.div`
+  height: 25px;
+  /* width: 100vw; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  grid-column: 1/-1;
+`;
+
+export const AddButton = styled.button`
+  height: 27px;
+  background: ${(props) => props.theme.HeaderButtonsBack};
+  color: ${(props) => props.theme.bodyFontColor};
+  font-size: 15px;
+  /* To make the buttons width/height/size equal */
+  width: 50px;
+  /* Remove the surrounding border */
+  border: none;
+  /* Cursor for how will the mouse look when hovering over them */
+  cursor: pointer;
+  margin: 3px;
+  :hover {
+    background-color: ${(props) => props.theme.onHoverColor};
+    color: ${(props) => props.theme.navbatButtonHover};
+    border: 1px solid ${(props) => props.theme.buttonTextColor};
+  }
+  :focus {
+    outline: 0;
+  }
+`;
+
+export const AddWishInputButtonDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

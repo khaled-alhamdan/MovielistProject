@@ -4,19 +4,25 @@ import {
   WatchedPageWatchedDeleteButtonsDiv,
   WatchedPageWatchedDeleteButtons,
 } from "../styles";
+import movieStore from "../Stores/movieStore";
+// import { observer } from "mobx-react";
 
-export const WatchDeleteButtons = () => {
+export const WishDeleteButtons = ({ movie }) => {
   return (
     <div>
       <WatchedPageContainerDiv>
         <WatchedPageWatchedDeleteButtonsDiv>
           <div>
-            <WatchedPageWatchedDeleteButtons>
+            <WatchedPageWatchedDeleteButtons
+              onClick={() => movieStore.moveToWatched(movie.id)}
+            >
               Watched
             </WatchedPageWatchedDeleteButtons>
           </div>
           <div>
-            <WatchedPageWatchedDeleteButtons>
+            <WatchedPageWatchedDeleteButtons
+              onClick={() => movieStore.deleteButton(movie.id)}
+            >
               Delete
             </WatchedPageWatchedDeleteButtons>
           </div>
@@ -26,4 +32,4 @@ export const WatchDeleteButtons = () => {
   );
 };
 
-export default WatchDeleteButtons;
+export default WishDeleteButtons;

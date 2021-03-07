@@ -6,8 +6,8 @@ import { useState } from "react";
 import { GlobalStyle, ThemeButton } from "./styles";
 // Importing FixedHeader
 import FixedNavHeader from "./Components/FixedHeader";
-// Importing Watched page
-import WatchedPage from "./Components/WatchedPage";
+// Importing Wish page
+import MainPage from "./Components/MainPage";
 // Importing Observer from Mobx
 import { observer } from "mobx-react";
 
@@ -37,19 +37,19 @@ const theme = {
 };
 
 const App = () => {
-  const [currentTheme, setCurrentTheme] = useState("lightTheme");
+  const [currentTheme, setCurrentTheme] = useState("darkTheme");
 
   const toggleTheme = () => {
     setCurrentTheme(currentTheme === "lightTheme" ? "darkTheme" : "lightTheme");
   };
+
   return (
     <div>
       {/* Wrapping everything with the theme provider */}
       <ThemeProvider theme={theme[currentTheme]}>
         <FixedNavHeader />
         <GlobalStyle />
-        <WatchedPage />
-        {/* <div className="App-navbar"></div> */}
+        <MainPage />
         <ThemeButton onClick={toggleTheme}>
           {currentTheme === "lightTheme" ? "Dark" : "Light"} Mode
         </ThemeButton>
