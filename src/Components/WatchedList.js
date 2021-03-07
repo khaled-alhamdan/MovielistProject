@@ -1,29 +1,14 @@
 import React from "react";
 import WatchedMovieItem from "./WatchedMovieItem";
-// Importing useState
-import { useState } from "react";
-// Importing SearchBar Component
-// import SearchBar from "./SearchBar";
 import { observer } from "mobx-react";
 import movieStore from "../Stores/movieStore";
-import {
-  MoviesDisplay,
-  // WishListSerachAddDiv,
-  MoviesDisplayContainerDiv,
-} from "../styles";
+import { MoviesDisplay, MoviesDisplayContainerDiv } from "../styles";
 
 const WatchedList = () => {
-  const [query, setQuery] = useState("");
-  const filteredMovies = movieStore.movies
-    .filter((movie) => movie.name.toLowerCase().includes(query.toLowerCase()))
-    .map((x) => (
-      <WatchedMovieItem
-        movie={x}
-        key={x.id}
-        //   setProduct={props.setProduct}
-        // onClick={() => props.setProduct}
-      />
-    ));
+  const watchedListMovies = movieStore.movies
+    .filter((movie) => movie.status === true)
+    .map((x) => <WatchedMovieItem movie={x} key={x.id} />);
+
   return (
     <>
       <MoviesDisplayContainerDiv>
@@ -37,7 +22,7 @@ const WatchedList = () => {
         >
           Watched Movies
         </h2>
-        <MoviesDisplay>{filteredMovies}</MoviesDisplay>
+        <MoviesDisplay>{watchedListMovies}</MoviesDisplay>
       </MoviesDisplayContainerDiv>
     </>
   );

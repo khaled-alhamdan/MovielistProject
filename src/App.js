@@ -3,13 +3,17 @@ import { ThemeProvider } from "styled-components";
 // Importing useState
 import { useState } from "react";
 // Importing Styled Components from srtyles.js
-import { GlobalStyle, ThemeButton } from "./styles";
+import { GlobalStyle, ThemeButton, WishListSerachAddDiv } from "./styles";
 // Importing FixedHeader
 import FixedNavHeader from "./Components/FixedHeader";
 // Importing Wish page
 import MainPage from "./Components/MainPage";
 // Importing Observer from Mobx
 import { observer } from "mobx-react";
+// // importing search bar
+// import SearchBar from "./Components/SearchBar";
+// import SearchMovieItem from "./Components/SearchItem";
+// import movieStore from "./Stores/movieStore";
 
 const theme = {
   lightTheme: {
@@ -43,12 +47,27 @@ const App = () => {
     setCurrentTheme(currentTheme === "lightTheme" ? "darkTheme" : "lightTheme");
   };
 
+  // const [query, setQuery] = useState("");
+  // const filteredMovies = movieStore.movies
+  //   .filter((movie) => movie.name.toLowerCase().includes(query.toLowerCase()))
+  //   .map((movie) => (
+  //     <SearchMovieItem
+  //       movie={movie}
+  //       key={movie.id}
+  //       //   setProduct={props.setProduct}
+  //       // onClick={() => props.setProduct}
+  //     />
+  //   ));
   return (
     <div>
       {/* Wrapping everything with the theme provider */}
       <ThemeProvider theme={theme[currentTheme]}>
         <FixedNavHeader />
         <GlobalStyle />
+        {/* <WishListSerachAddDiv>
+          <SearchBar setQuery={setQuery} />
+          {filteredMovies}
+        </WishListSerachAddDiv> */}
         <MainPage />
         <ThemeButton onClick={toggleTheme}>
           {currentTheme === "lightTheme" ? "Dark" : "Light"} Mode
