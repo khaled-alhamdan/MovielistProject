@@ -5,32 +5,27 @@ import WishList from "./WishList";
 // Importing movieStore from MovieStore
 import movieStore from "../Stores/movieStore";
 import WatchedList from "./WatchedList";
-import { WishListSerachAddDiv } from "../styles";
+import { WishListSerachAddDiv, WishAndWatchedContainerDiv } from "../styles";
 import SearchMovieItem from "./SearchMovieItem";
 
 import SearchBar from "./SearchBar";
 
 export const MainPage = () => {
-  const [query, setQuery] = useState("");
-  const filteredMovies = movieStore.movies
-    .filter((movie) => movie.name.toLowerCase().includes(query.toLowerCase()))
-    .map((x) => <SearchMovieItem movie={x} key={x.id} />);
+  const [search, setSearch] = useState("");
+  // const filteredMovies = movieStore.movies
+  //   .filter((movie) => movie.name.toLowerCase().includes(search.toLowerCase()))
+  //   .map((x) => <SearchMovieItem movie={x} key={x.id} />);
 
   return (
     <div>
       <WishListSerachAddDiv>
-        <SearchBar setQuery={setQuery} />
+        <SearchBar setSearch={setSearch} />
       </WishListSerachAddDiv>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <WishList movies={movieStore.movies} />
+      <WishAndWatchedContainerDiv>
+        <WishList searched={search} />
         {/* {filteredMovies} */}
-        <WatchedList />
-      </div>
+        <WatchedList searched={search} />
+      </WishAndWatchedContainerDiv>
     </div>
   );
 };

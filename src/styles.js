@@ -19,7 +19,9 @@ export const HeaderNavDiv = styled.div`
   /* height: 80px; */
   box-sizing: border-box;
   /* margin: 0px; */
-  padding: 20px;
+  padding: 10px;
+  padding-bottom: 15px;
+  padding-top: 15px;
   position: relative;
   color: rgb(221, 219, 219);
 `;
@@ -66,7 +68,9 @@ export const SearchBarStyled = styled.input`
   padding: 5px;
   height: 15px;
   width: 25%;
-  margin-top: 5px;
+  min-width: 200px;
+  /* max-width: 800px; */
+  margin-top: 40px;
   color: ${(props) => props.theme.HeaderDivColor};
   :focus {
     outline: 0;
@@ -76,6 +80,8 @@ export const SearchBarStyled = styled.input`
 export const ThemeButton = styled.button`
   font-size: 1em;
   font-family: sans-serif;
+  width: 25%;
+  min-width: 200px;
   margin: 1.25em;
   padding: 0.5em 2em;
   border-radius: 7px;
@@ -129,24 +135,21 @@ export const MoviesDisplay = styled.div`
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-gap: 10px;
-  /* padding: 10px; */
   margin-top: 10px;
-  /* margin-left: auto;
-  margin-right: auto; */
   justify-content: center;
 `;
 
 export const MoviesDisplayContainerDiv = styled.div`
   border: 2px solid ${(props) => props.theme.bodyFontColor};
   border-radius: 10px;
-  width: 80%;
+  /* max-width: 425px; */
+  min-width: 450px;
+  width: 45%;
   margin: 15px;
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* box-sizing: border-box; */
-  padding: 10px;
-  background-size: contain;
-  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  margin-top: 50px;
 `;
 
 export const MovieImage = styled.img`
@@ -176,7 +179,6 @@ export const MovieItemTitleDiv = styled.div`
 
 export const WishListSerachAddDiv = styled.div`
   height: 25px;
-  /* width: 100vw; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -206,8 +208,29 @@ export const AddButton = styled.button`
   }
 `;
 
+export const AddMovieInput = styled.input`
+  height: 25px;
+  width: 20vw;
+  min-width: 150px;
+  outline: none;
+  border: none;
+`;
+
 export const AddWishInputButtonDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+`;
+
+export const WishAndWatchedContainerDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
+
+export const BoxTitle = styled.h2`
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: fantasy;
 `;

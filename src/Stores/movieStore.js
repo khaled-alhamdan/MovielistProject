@@ -28,7 +28,7 @@ class MovieStore {
   };
 
   deleteButton = (id) => {
-    this.movies = this.movies.filter((toDelete) => toDelete.id !== id);
+    this.movies = this.movies.filter((movie) => movie.id !== id);
   };
 }
 

@@ -47,27 +47,12 @@ const App = () => {
     setCurrentTheme(currentTheme === "lightTheme" ? "darkTheme" : "lightTheme");
   };
 
-  // const [query, setQuery] = useState("");
-  // const filteredMovies = movieStore.movies
-  //   .filter((movie) => movie.name.toLowerCase().includes(query.toLowerCase()))
-  //   .map((movie) => (
-  //     <SearchMovieItem
-  //       movie={movie}
-  //       key={movie.id}
-  //       //   setProduct={props.setProduct}
-  //       // onClick={() => props.setProduct}
-  //     />
-  //   ));
   return (
-    <div>
+    <div style={{ width: "100vw", textAlign: "center" }}>
       {/* Wrapping everything with the theme provider */}
       <ThemeProvider theme={theme[currentTheme]}>
         <FixedNavHeader />
         <GlobalStyle />
-        {/* <WishListSerachAddDiv>
-          <SearchBar setQuery={setQuery} />
-          {filteredMovies}
-        </WishListSerachAddDiv> */}
         <MainPage />
         <ThemeButton onClick={toggleTheme}>
           {currentTheme === "lightTheme" ? "Dark" : "Light"} Mode

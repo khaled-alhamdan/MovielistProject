@@ -16,7 +16,7 @@ export const UnwatchedButtons = ({ movie }) => {
             <WatchedPageWatchedDeleteButtons
               onClick={() => movieStore.moveToWatched(movie.id)}
             >
-              UnWatched
+              Unwatched
             </WatchedPageWatchedDeleteButtons>
           </div>
           <div>
